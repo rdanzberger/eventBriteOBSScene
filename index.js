@@ -1,5 +1,5 @@
 async function getEventDeets() {
-    let url = 'https://www.eventbriteapi.com/v3/events/275523306627/?token=[insert oAuth here]';
+    let url = 'https://www.eventbriteapi.com/v3/events/275523306627/?token=[insert oAuth Token]';
     try {
         let res = await fetch(url);
         return await res.json();
