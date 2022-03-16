@@ -1,5 +1,5 @@
 async function getEventDeets() {
-    let url = 'https://www.eventbriteapi.com/v3/events/275523306627/?token=GIIYLN72LEZZQOGPUBPP';
+    let url = 'https://www.eventbriteapi.com/v3/events/275523306627/?token=[insert oAuth here]';
     try {
         let res = await fetch(url);
         return await res.json();
@@ -12,10 +12,11 @@ async function renderUsers() {
     let deets = await getEventDeets();
     let html = '';
     let htmlSegment = `<div class="deets">
-                            <img src="${deets.logo.url}" >
-                            <h2>Description of Event: ${deets.description.text} </h2>
-                            <p>Summary of event: ${deets.summary}</p>
-                            <p>Link to sign up: ${deets.url}</p>
+                            <img src="${deets.logo.url}" style="width:50%;">
+                            <h1>Description of Event: ${deets.description.text} </h1>
+                            <h2>Summary of event: ${deets.summary}</h2>
+                            <h2>When? ${deets.start.local} - ${deets.end.local} </h2>
+                            <h2>Link to sign up: ${deets.url}</h2>
                            </div>`;
     html += htmlSegment;
 
